@@ -12,7 +12,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
 
     // Se o array de hábitos estiver vazio, busca os valores da API
     if (habitos.habitos.length == 0) {
-        $http.get('http://localhost:80/listadehabitos-rest-api/habito.php')
+        $http.get('./listadehabitos-rest-api/habito.php')
             .then(function(response) {
                 var data = response.data;
                 for (var indice in data) {
@@ -30,7 +30,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
     $scope.vencerHabito = function(habito) {
         var indice = $scope.habitos.indexOf(habito);
         habito.status = "V";
-        $http.put('http://localhost:80/listadehabitos-rest-api/habito.php', habito)
+        $http.put('./listadehabitos-rest-api/habito.php', habito)
             .then(function(response) {
                 $scope.habitos[indice] = response.data;
             })
@@ -43,7 +43,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
     $scope.retomarHabito = function(habito) {
         var indice = $scope.habitos.indexOf(habito);
         habito.status = "A";
-        $http.put('http://localhost:80/listadehabitos-rest-api/habito.php', habito)
+        $http.put('./listadehabitos-rest-api/habito.php', habito)
             .then(function(response) {
                 $scope.habitos[indice] = response.data;
             })
@@ -54,7 +54,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
 
     // Exclui um hábito
     $scope.desistirHabito = function(habito) {
-        $http.delete('http://localhost:80/listadehabitos-rest-api/habito.php', { params: { id: habito.id } })
+        $http.delete('./listadehabitos-rest-api/habito.php', { params: { id: habito.id } })
             .then(function(response) {
                 var indice = $scope.habitos.indexOf(habito);
                 $scope.habitos.splice(indice, 1);
@@ -74,7 +74,7 @@ app.controller("novohabito", ["$scope", "$http", "habitos", function($scope, $ht
     $scope.inserirHabito = function(nome) {
         if (nome === "") return;  // Valida se o nome não está vazio
 
-        $http.post('http://localhost:80/listadehabitos-rest-api/habito.php', { nome: nome })
+        $http.post('./listadehabitos-rest-api/habito.php', { nome: nome })
             .then(function(response) {
                 $scope.habitos.push(response.data);
                 $scope.nome = "";  // Limpa o campo após a inserção
