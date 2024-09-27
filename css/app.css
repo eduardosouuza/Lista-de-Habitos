@@ -1,0 +1,25 @@
+.main {
+  width: 350px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #000;
+  /* Adiciona uma borda preta */
+  background-color: #FFF;
+  /* Fundo branco */
+}
+
+
+body {
+  background-color: #C7E123
+}
+
+th {
+  text-align: center;
+}
+
+a {
+  color: #7C6B6B
+}

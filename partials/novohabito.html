@@ -1,0 +1,12 @@
+<!-- novohabito.html -->
+<div class="main jumbotron">
+  <h1>Inserir Novo Hábito</h1>
+  <form ng-submit="inserirHabito(nome)">
+    <div class="form-group">
+      <label for="nome">Nome do Hábito:</label>
+      <input type="text" id="nome" ng-model="nome" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar Hábito</button>
+    <button type="button" class="btn btn-secondary" ng-click="nome = ''">Limpar</button>
+  </form>
+</div>

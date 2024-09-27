@@ -1,0 +1,34 @@
+<!-- listadehabitos.html -->
+<div class="main jumbotron">
+  <h1>Lista de Hábitos</h1>
+  <p>Cadastre aqui os hábitos que você tem que vencer para melhorar sua vida!</p>
+</div>
+<div class="main jumbotron">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Hábitos</th>
+        <th colspan="2">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="habito in habitos | orderBy:'status'">
+        <td>{{habito.nome}}</td>
+        <td>
+          <button class="btn btn-primary" ng-click="vencerHabito(habito)" ng-hide="habito.status != 'A'">Vencer</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" ng-click="desistirHabito(habito)"
+            ng-hide="habito.status != 'A'">Desistir</button>
+          <button class="btn btn-danger" ng-click="retomarHabito(habito)"
+            ng-hide="habito.status != 'V'">Retomar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="main jumbotron">
+  <p>Mude sua vida!</p>
+  <p>Cadastre seus maus hábitos!</p>
+  <a class="btn btn-primary" href="#!/novohabito">Inserir novos hábitos</a>
+</div>
